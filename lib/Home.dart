@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatelessWidget{
   @override
@@ -24,10 +25,60 @@ class Home extends StatelessWidget{
         ],
       ),
       body: Container(
-        color: Colors.lightBlue,
-        margin: EdgeInsets.symmetric(vertical: 200,horizontal: 100),
-        padding: EdgeInsets.all(40),
-        child: Text("AGUNGCUUU"),
+        child: ListView(
+          children: <Widget>[
+            SizedBox(height: 15),
+            CarouselSlider(
+                items: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: AssetImage("assets/umk.jpg"),
+                        fit: BoxFit.cover
+                      ),
+                    ),
+                  )
+                ],
+                options: CarouselOptions(
+                  height: 150,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16/9,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  viewportFraction: 0.8
+            )),
+            Container(
+              child: Column(
+                children: [
+                  SizedBox(height: 35),
+                  Container(
+                    child: Text(
+                        "Jadilah Investor Bersama Kami",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20
+                    ) ,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: Text(
+                      "Dengan Membantu UMKM Indonesia Dapat Membantu Ekonomi",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w100
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
