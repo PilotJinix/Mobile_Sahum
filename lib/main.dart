@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suhamv1_app/awal.dart';
+import 'package:suhamv1_app/Awal.dart';
 
 void main() {
   runApp(MyApp());
