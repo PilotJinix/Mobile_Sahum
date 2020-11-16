@@ -1,16 +1,9 @@
-# suhamv1_app
+# SAHUM
+SAHUM merupakan aplikasi berbasis mobile yang mana terfokus dalam dunia investasi. SAHUM bertujuan untuk membantu para pegiat Usaha Kecil Menengah untuk membangun usahanya lebih besar lagi. SAHUM dapat mendatangkan para investor investor lokal untuk memulai berinvestasi pada UMKM diindonesia. Pada pasalnya banyak sekali masyarakat kita yang membeli saham perusaan internasional yang sangat jelas cukup menggiurkan akan tetapi dengan adanya SAHUM maka diharapkan masyarakat dapat ikut membantu para pegiat usaha kecil menengah dalam mengembangkan usaha mereka.
 
-A new Flutter application.
+## Kelompok G SDGs 8
+__Anggota Kelompok:__
+* MUHAMMAD AGUNG SANTOSO (182410103081)
+* MELIATIYA ARIFVIYANA (182410103044)
+* ALIFIA AFIFAH (182410103069)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
