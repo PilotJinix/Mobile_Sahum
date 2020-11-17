@@ -110,7 +110,6 @@ class _HomeState extends State<Home> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.only(left: 15, right: 10) ,
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
@@ -118,23 +117,129 @@ class _HomeState extends State<Home> {
                           height: 300,
                           width: 250,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
                             border: Border.all(
                               color: Colors.grey.withOpacity(0.3),
                             )
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                height:186 ,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/umk2.jpg")
+                                  )
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                margin: EdgeInsets.only(left: 5),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                        "UMKM Anti Corona",
+                                      style: TextStyle(fontWeight: FontWeight.w400),
+                                    ),
+                                    SizedBox(height: 20),
+                                    Text(
+                                      "Owner bisnis bisa submit usahanya Anda pilih sendiri bisnis mana yang akan melakukan pendanaan selanjutnya di Sahum.",
+                                      style: TextStyle(fontSize: 10,letterSpacing: 0.5,fontWeight: FontWeight.w300),
+                                    )
+                                  ],
+                                )
+                              )
+                            ],
                           ),
                         ),
                         SizedBox(width: 10,),
                         Container(
                           height: 300,
                           width: 250,
-                          color: Colors.yellow,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(0.3),
+                              )
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                height:186 ,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                                    image: DecorationImage(
+                                        image: AssetImage("assets/umk2.jpg")
+                                    )
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                  margin: EdgeInsets.only(left: 5),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "UMKM Anti Corona",
+                                        style: TextStyle(fontWeight: FontWeight.w400),
+                                      ),
+                                      SizedBox(height: 20),
+                                      Text(
+                                        "Owner bisnis bisa submit usahanya Anda pilih sendiri bisnis mana yang akan melakukan pendanaan selanjutnya di Sahum.",
+                                        style: TextStyle(fontSize: 10,letterSpacing: 0.5,fontWeight: FontWeight.w300),
+                                      )
+                                    ],
+                                  )
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(width: 10,),
                         Container(
                           height: 300,
                           width: 250,
-                          color: Colors.green,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(0.3),
+                              )
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                height:186 ,
+                                width: 250,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                                    image: DecorationImage(
+                                        image: AssetImage("assets/umk2.jpg")
+                                    )
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                  margin: EdgeInsets.only(left: 5),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        "UMKM Anti Corona",
+                                        style: TextStyle(fontWeight: FontWeight.w400),
+                                      ),
+                                      SizedBox(height: 20),
+                                      Text(
+                                        "Owner bisnis bisa submit usahanya Anda pilih sendiri bisnis mana yang akan melakukan pendanaan selanjutnya di Sahum.",
+                                        style: TextStyle(fontSize: 10,letterSpacing: 0.5,fontWeight: FontWeight.w300),
+                                      )
+                                    ],
+                                  )
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
