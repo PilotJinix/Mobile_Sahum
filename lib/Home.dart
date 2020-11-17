@@ -5,7 +5,12 @@ import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class Home extends StatelessWidget{
+class Home extends StatefulWidget{
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,11 +74,72 @@ class Home extends StatelessWidget{
                       "Dengan Membantu UMKM Indonesia Dapat Membantu Ekonomi",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 12,
                         fontWeight: FontWeight.w100
                       ),
                     ),
-                  )
+                  ),
+                  GestureDetector(
+                    onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 50),
+                      child: Text(
+                        "UMKM PRALISTING",
+                        style: TextStyle(
+                            color: Colors.white,
+                            letterSpacing: 3
+                        ),
+                      ),
+                      padding: EdgeInsets.fromLTRB(85, 10, 85, 10),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 70,),
+                  Container(
+                    margin: EdgeInsets.only(right:175 ),
+                    child: Text(
+                      "Usaha Pra Listing",
+                      style: TextStyle(fontWeight: FontWeight.w400,
+                      fontSize: 20),
+                    ),
+                  ),
+                  SizedBox(height: 40,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.only(left: 15, right: 10) ,
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          height: 300,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(0.3),
+                            )
+                          ),
+                        ),
+                        SizedBox(width: 10,),
+                        Container(
+                          height: 300,
+                          width: 250,
+                          color: Colors.yellow,
+                        ),
+                        SizedBox(width: 10,),
+                        Container(
+                          height: 300,
+                          width: 250,
+                          color: Colors.green,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 15,)
                 ],
               ),
             )
