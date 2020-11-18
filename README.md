@@ -4,6 +4,6 @@ SAHUM merupakan aplikasi berbasis mobile yang mana terfokus dalam dunia investas
 ## Kelompok G SDGs 8
 __Anggota Kelompok:__
 * MUHAMMAD AGUNG SANTOSO (182410103081)
-* MELIATIYA ARIFVIYANA (182410103044)
+* MELIATIYA ARIFVIYANA (182410103037)
 * ALIFIA AFIFAH (182410103069)
 
