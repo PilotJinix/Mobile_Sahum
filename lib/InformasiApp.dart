@@ -11,7 +11,6 @@ class InformasiApp extends StatelessWidget{
         backgroundColor: Colors.blue.withOpacity(0),
       ),
       body: Column(
-
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
