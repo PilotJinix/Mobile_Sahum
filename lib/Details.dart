@@ -44,6 +44,9 @@ class _DetailState extends State<Detail> {
             height: 200,
             child:gesergambar()
           ),
+          Container(
+            child: Text("Kopi Loer"),
+          )
 
         ],
       ),
