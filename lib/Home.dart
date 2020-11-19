@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:suhamv1_app/Details.dart';
 import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -110,7 +111,7 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 40,),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.only(left: 15, right: 10) ,
+                    padding: EdgeInsets.only(left: 15, right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
@@ -249,7 +250,7 @@ class _HomeState extends State<Home> {
                   Container(
                     margin: EdgeInsets.only(right:210 ),
                     child: Text(
-                      "Pilih Bisnis",
+                      "Pilih Bisnis ",
                       style: TextStyle(fontWeight: FontWeight.w400,
                           fontSize: 20),
                     ),
@@ -262,7 +263,7 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         GestureDetector(
-                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Detail())),
                           child: Container(
                             height: 330,
                             width: 250,
@@ -301,11 +302,11 @@ class _HomeState extends State<Home> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          "UMKM Anti Corona",
+                                          "Kopi Loer",
                                           style: TextStyle(fontWeight: FontWeight.w400),
                                         ),
                                         Text(
-                                          "PT Coffe Sider",
+                                          "PT Kopi Loer Jaya",
                                           style: TextStyle(
                                               fontSize: 10,
                                               letterSpacing: 0.1,
@@ -427,11 +428,11 @@ class _HomeState extends State<Home> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          "UMKM Anti Corona",
+                                          "Kopi HariHari",
                                           style: TextStyle(fontWeight: FontWeight.w400),
                                         ),
                                         Text(
-                                          "PT Coffe Sider",
+                                          "PT Coffe Hari",
                                           style: TextStyle(
                                               fontSize: 10,
                                               letterSpacing: 0.1,
@@ -552,7 +553,7 @@ class _HomeState extends State<Home> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          "UMKM Anti Corona",
+                                          "Pojok Bangka",
                                           style: TextStyle(fontWeight: FontWeight.w400),
                                         ),
                                         Text(
