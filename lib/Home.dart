@@ -337,7 +337,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           width: 250,
                                           child: new LinearPercentIndicator(
-                                            width: MediaQuery.of(context).size.width - 122,
+                                            width: MediaQuery.of(context).size.width - 186,
                                             animation: true,
                                             lineHeight: 15,
                                             animationDuration: 1000,
@@ -463,7 +463,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           width: 250,
                                           child: new LinearPercentIndicator(
-                                            width: MediaQuery.of(context).size.width - 122,
+                                            width: MediaQuery.of(context).size.width - 186,
                                             animation: true,
                                             lineHeight: 15,
                                             animationDuration: 3000,
@@ -588,7 +588,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           width: 250,
                                           child: new LinearPercentIndicator(
-                                            width: MediaQuery.of(context).size.width - 122,
+                                            width: MediaQuery.of(context).size.width - 186,
                                             animation: true,
                                             lineHeight: 15,
                                             animationDuration: 3000,
