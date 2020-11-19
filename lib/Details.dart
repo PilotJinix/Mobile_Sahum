@@ -15,6 +15,7 @@ class _DetailState extends State<Detail> {
       child: Swiper(
         itemWidth: 300,
         itemHeight: 300,
+
         itemCount: gambar.length,
         itemBuilder: (BuildContext context, int index){
           return ClipRRect(
@@ -28,6 +29,7 @@ class _DetailState extends State<Detail> {
         viewportFraction: 0.8,
         scale: 0.5,
         layout: SwiperLayout.STACK ,
+
       ),
       );
   }
@@ -44,10 +46,10 @@ class _DetailState extends State<Detail> {
             height: 200,
             child:gesergambar()
           ),
+
           Container(
             child: Text("Kopi Loer"),
           )
-
         ],
       ),
     );
