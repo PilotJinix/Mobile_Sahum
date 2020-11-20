@@ -341,7 +341,7 @@ class _HomeState extends State<Home> {
                                             animation: true,
                                             lineHeight: 15,
                                             animationDuration: 1000,
-                                            percent: 0.25,
+                                            percent: 0.9,
                                             center: Text(
                                               "25.0%",
                                               style: TextStyle(
