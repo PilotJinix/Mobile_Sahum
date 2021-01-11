@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:suhamv1_app/Home.dart';
+import 'package:suhamv1_app/PageTwo.dart';
 import 'package:suhamv1_app/data.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -199,18 +200,19 @@ class _DetailState extends State<Detail> {
                 progressColor: Colors.green,
               ),
             ),
+            SizedBox(height: 12),
             GestureDetector(
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Home())),
+              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
               child: Container(
-                margin: EdgeInsets.only(top: 40,left: 15,right: 15),
+                margin: EdgeInsets.all(12),
                 child: Text(
-                  "Beli Saham",
+                  "UKM PRALISTING",
                   style: TextStyle(
                       color: Colors.white,
                       letterSpacing: 3
                   ),
                 ),
-                padding: EdgeInsets.fromLTRB(150, 10, 85, 10),
+                padding: EdgeInsets.fromLTRB(85, 10, 85, 10),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.all(Radius.circular(10)),
