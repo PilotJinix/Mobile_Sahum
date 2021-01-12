@@ -205,11 +205,13 @@ class _DetailState extends State<Detail> {
               onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
               child: Container(
                 margin: EdgeInsets.all(12),
-                child: Text(
-                  "UKM PRALISTING",
-                  style: TextStyle(
-                      color: Colors.white,
-                      letterSpacing: 3
+                child: Center(
+                  child: Text(
+                    "Beli Saham",
+                    style: TextStyle(
+                        color: Colors.white,
+                        letterSpacing: 3
+                    ),
                   ),
                 ),
                 padding: EdgeInsets.fromLTRB(85, 10, 85, 10),

@@ -6,7 +6,6 @@ import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:suhamv1_app/login.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -87,7 +86,7 @@ class _HomeState extends State<Home> {
                     child: Container(
                       margin: EdgeInsets.only(top: 50),
                       child: Text(
-                        "UKM PRALISTING",
+                        "UMKM PRALISTING",
                         style: TextStyle(
                             color: Colors.white,
                             letterSpacing: 3
@@ -707,7 +706,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text("Page Two"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Login())),
+              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
             ),
             ListTile(
               leading: Builder(
