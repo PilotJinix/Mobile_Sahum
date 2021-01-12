@@ -128,6 +128,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "flutter_svg",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.19.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "flutter_swiper",
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_swiper-1.1.6",
       "packageUri": "lib/",
@@ -186,6 +192,18 @@
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.4.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "1.19"
     },
     {
       "name": "path_provider",
@@ -368,7 +386,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-11T19:34:46.873179Z",
+  "generated": "2021-01-12T18:21:07.971784Z",
   "generator": "pub",
   "generatorVersion": "2.9.1"
 }

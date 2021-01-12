@@ -33,6 +33,7 @@ dependencies:
   cached_network_image: ^2.3.3
   carousel_pro: ^1.0.0
   flutter_swiper: ^1.1.6
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,9 @@ flutter:
     - assets/MOMN_picture10.jpg
     - assets/facebook.jpg
     - assets/google.jpg
+    - assets/invest.svg
+    - assets/nego.svg
+    - assets/tabungan.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
