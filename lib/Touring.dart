@@ -12,19 +12,19 @@ class _TouringState extends State<Touring> {
 
   List<Widget> _pages = [
     SlideController(
-        judul: "Keep",
+        judul: "BERGABUNGLAH",
         deskripsi:
-        "Accept cryptocurrencies and digital assets, keep thern here, or send to orthers",
+        "Dengan Memajukan UMKM Indonesia",
         gambar: "assets/logo.png"),
     SlideController(
-        judul: "Buy",
+        judul: "INVESTOR",
         deskripsi:
-        "Buy Bitcoin and cryptocurrencies with VISA and MasterVard right in the App",
+        "Investasikan Uang Anda Pada UMKM Indonesia ",
         gambar: "assets/logo.png"),
     SlideController(
-        judul: "Sell",
+        judul: "RAIH KEUNTUNGAN",
         deskripsi:
-        "Sell your Bitcoin cryptocurrencies or Change with orthres digital assets or flat money",
+        "Dapatkan Hasil Investasi Dengan Cara Yang Mudah",
         gambar: "assets/logo.png"),
   ];
 
