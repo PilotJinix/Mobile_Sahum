@@ -6,6 +6,7 @@ import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:suhamv1_app/Profile.dart';
 import 'package:suhamv1_app/Touring.dart';
 import 'package:suhamv1_app/login.dart';
 
@@ -28,8 +29,10 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
             icon: Icon(
-                Icons.notifications_none
+                Icons.account_circle,
+              color: Colors.white,
             ),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Profile())),
           )
         ],
       ),
