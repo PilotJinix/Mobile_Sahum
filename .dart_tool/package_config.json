@@ -128,6 +128,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.19.1",
       "packageUri": "lib/",
@@ -162,6 +168,18 @@
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.19",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "image_picker",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.7+21",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "image_picker_platform_interface",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.5"
     },
     {
       "name": "intl",
@@ -297,7 +315,7 @@
     },
     {
       "name": "sqflite_common",
-      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite_common-1.0.2+1",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite_common-1.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -386,7 +404,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-12T18:21:07.971784Z",
+  "generated": "2021-01-13T17:26:03.869170Z",
   "generator": "pub",
   "generatorVersion": "2.9.1"
 }

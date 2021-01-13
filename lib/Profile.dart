@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:suhamv1_app/Home.dart';
 
 class Profile extends StatefulWidget{
@@ -8,8 +10,22 @@ class Profile extends StatefulWidget{
 }
 
 class _ProfileState extends State<Profile> {
-
   bool tampilkan = false;
+  File imgcamera;
+
+  final imagePicker = ImagePicker();
+
+  Future viewcamera() async{
+    imgcamera = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+    });
+  }
+
+  viewgalery() async{
+    imgcamera = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +48,7 @@ class _ProfileState extends State<Profile> {
             FocusScope.of(context).unfocus();
           },
           child: ListView(
-            children: [
+            children: <Widget>[
               SizedBox(height: 5,),
               Center(
                 child: Stack(
@@ -61,24 +77,29 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 4,
-                            color: Theme.of(context).scaffoldBackgroundColor,
+                        bottom: 0,
+                        right: 0,
+                        child: GestureDetector(
+                          onTap: (){
+                            showModalBottomSheet(context: context, builder: ((builder) => popup()),);
+                          },
+                          child: Container(
+                            height: 35,
+                            width: 35,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                width: 4,
+                                color: Theme.of(context).scaffoldBackgroundColor,
+                              ),
+                              color: Colors.blue,
+                            ),
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.white,
+                            ),
                           ),
-                          color: Colors.blue,
-                        ),
-                        child: Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                        ),
-                      ),
+                        )
                     ),
                   ],
                 ),
@@ -164,6 +185,52 @@ class _ProfileState extends State<Profile> {
               fontWeight: FontWeight.w100,
               color: Colors.black,
             )),
+      ),
+    );
+  }
+
+
+  Widget popup(){
+    return Container(
+      height: 100,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: [
+          Text(
+            "Pilih Perangkat Anda",
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(height: 20,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlatButton.icon(
+                  onPressed: viewcamera,
+                  icon: Icon(
+                    Icons.camera
+                  ),
+                  label: Text(
+                    "Kamera"
+                  ),
+              ),
+              FlatButton.icon(
+                onPressed: viewgalery,
+                icon: Icon(
+                    Icons.image
+                ),
+                label: Text(
+                    "Galery"
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
