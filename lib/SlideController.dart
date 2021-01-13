@@ -17,11 +17,10 @@ class SlideController extends StatelessWidget{
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SvgPicture.asset(
-            gambar,
-            width: width* 0.6,
+          Image.asset(
+              gambar,
+            width: width * 1,
           ),
-          SizedBox(height: 60,),
           Text(
             judul,
             style: TextStyle(

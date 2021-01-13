@@ -6,6 +6,8 @@ import 'package:suhamv1_app/InformasiApp.dart';
 import 'package:suhamv1_app/Pagetwo.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:suhamv1_app/Touring.dart';
+import 'package:suhamv1_app/login.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -694,8 +696,8 @@ class _HomeState extends State<Home> {
                   );
                 },
               ),
-              title: Text("Page Two"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+              title: Text("Touring"),
+              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Touring())),
             ),
             ListTile(
               leading: Builder(
@@ -705,8 +707,8 @@ class _HomeState extends State<Home> {
                   );
                 },
               ),
-              title: Text("Page Two"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+              title: Text("Login"),
+              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Login())),
             ),
             ListTile(
               leading: Builder(
