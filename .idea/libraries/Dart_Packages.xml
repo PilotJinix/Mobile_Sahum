@@ -149,6 +149,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_svg">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.19.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_swiper">
           <value>
             <list>
@@ -216,6 +223,20 @@
           <value>
             <list>
               <option value="$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.7.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="path_drawing">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.4.1+1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="path_parsing">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.1.4/lib" />
             </list>
           </value>
         </entry>
@@ -445,6 +466,7 @@
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blurhash-0.5.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_cache_manager-2.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_page_indicator-0.0.3/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.19.1/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_swiper-1.1.6/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4/lib" />
@@ -454,6 +476,8 @@
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/octo_image-0.3.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.7.0/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.4.1+1/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.1.4/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.27/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/lib" />
       <root url="file://$PROJECT_DIR$/../../../Programs/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+8/lib" />
