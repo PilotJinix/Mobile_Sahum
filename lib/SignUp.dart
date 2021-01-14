@@ -171,6 +171,16 @@ class _SignUpState extends State<SignUp> {
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
+            validator: (value)
+            {
+              if (value.isEmpty || value != _passwordController ){
+                return 'Invalid Password';
+              }
+              return null;
+            },
+            onSaved: (value){
+
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
