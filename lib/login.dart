@@ -85,7 +85,7 @@ class _LoginState extends State<Login> {
             ),
             validator: (value)
             {
-              if(value.isEmpty || value.contains("@"))
+              if(value.isEmpty || !value.contains("@"))
               {
                 return 'invalid Email';
               }
