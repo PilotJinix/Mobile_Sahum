@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:suhamv1_app/Home.dart';
 import 'package:suhamv1_app/SlideController.dart';
 
 class Touring extends StatefulWidget{
@@ -73,13 +74,13 @@ class _TouringState extends State<Touring> {
                 onTap: () {
                   _controller.nextPage(
                       duration: Duration(milliseconds: 800),
-                      curve: Curves.easeInOutQuint);
+                      curve: Curves.easeInOutQuint).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context)=> Home())));
                 },
                 child: AnimatedContainer(
                   alignment: Alignment.center,
                   duration: Duration(milliseconds: 200),
                   height: 50,
-                  width: (_currentPage == (_pages.length - 1)) ? 200 : 50,
+                  width: (_currentPage == (_pages.length - 1)) ? 200 : 0,
                   decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(35)),
@@ -93,7 +94,7 @@ class _TouringState extends State<Touring> {
                   )
                       : Icon(
                     Icons.navigate_next,
-                    size: 50,
+                    size: 0,
                     color: Colors.white,
                   ),
                 ),

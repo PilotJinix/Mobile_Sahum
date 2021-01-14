@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:suhamv1_app/Home.dart';
+import 'package:suhamv1_app/HomeController.dart';
 import 'package:suhamv1_app/SignUp.dart';
+import 'package:suhamv1_app/Touring.dart';
 
 class Login extends StatefulWidget{
   @override
@@ -126,7 +129,7 @@ class _LoginState extends State<Login> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () => Navigator.push(context, MaterialPageRoute( builder: (context) => HomeController())),
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:suhamv1_app/Home.dart';
+import 'package:suhamv1_app/login.dart';
 
 class Awalan extends StatefulWidget{
 
@@ -14,11 +15,11 @@ class _Awalan extends State<Awalan>{
   }
 
   splashscreenStart() async{
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 4);
     return Timer(duration, (){
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Home()),
+        MaterialPageRoute(builder: (context) => Login()),
 
       );
     });
