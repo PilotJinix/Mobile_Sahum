@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:suhamv1_app/Home.dart';
 import 'package:suhamv1_app/SlideController.dart';
 
@@ -13,6 +14,14 @@ class Touring extends StatefulWidget{
 class _TouringState extends State<Touring> {
   int _currentPage = 0;
   PageController _controller = PageController();
+
+  setcheck() async {
+    var variabelCheck = await SharedPreferences.getInstance();
+    variabelCheck.setBool('done', true);
+    print('simpan sudah pernah tur aplikasi');
+
+    return Navigator.push(context, MaterialPageRoute (builder: (context)=>Home()));
+  }
 
   List<Widget> _pages = [
     SlideController(
@@ -74,7 +83,7 @@ class _TouringState extends State<Touring> {
                 onTap: () {
                   _controller.nextPage(
                       duration: Duration(milliseconds: 800),
-                      curve: Curves.easeInOutQuint).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context)=> Home())));
+                      curve: Curves.easeInOutQuint).then((value) => Navigator.push(setcheck(), MaterialPageRoute(builder: (context)=>Home())));
                 },
                 child: AnimatedContainer(
                   alignment: Alignment.center,
