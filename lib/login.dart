@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suhamv1_app/SignUp.dart';
 
 class Login extends StatefulWidget{
   @override
@@ -213,7 +214,7 @@ class _LoginState extends State<Login> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () => Navigator.push(context, MaterialPageRoute( builder: (context) => SignUp())),
       child: RichText(
         text: TextSpan(
           children: [
@@ -290,11 +291,7 @@ class _LoginState extends State<Login> {
                         height: 30.0,
                       ),
                       _buildPasswordTF(),
-                      _buildForgotPasswordBtn(),
-                      _buildRememberMeCheckbox(),
                       _buildLoginBtn(),
-                      _buildSignInWithText(),
-                      _buildSocialBtnRow(),
                       _buildSignupBtn(),
                     ],
                   ),
