@@ -22,7 +22,7 @@ class Authentication with ChangeNotifier{
     print(responseData);
   }
 
-  Future<void> login(String email, String password) async{
+  Future<void> logIn(String email, String password) async{
 
     const url ="https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyADbp0kydLC0MCDFEItbn4Hdj57Wl1fmwo";
 

@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
     _formKey.currentState.save();
 
     try{
-      await Provider.of<Authentication>(context, listen: false).login(
+      await Provider.of<Authentication>(context, listen: false).logIn(
           _authData['email'],
           _authData['password']
       );
@@ -42,6 +42,7 @@ class _LoginState extends State<Login> {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);
     }
+
   }
 
   void _showErrorDialog(String msg)
@@ -76,12 +77,24 @@ class _LoginState extends State<Login> {
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
-          child: TextField(
+          child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
+            validator: (value)
+            {
+              if(value.isEmpty || value.contains("@"))
+              {
+                return 'invalid Email';
+              }
+              return null;
+            },
+            onSaved: (value)
+            {
+              _authData["email"] = value;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -111,12 +124,24 @@ class _LoginState extends State<Login> {
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
-          child: TextField(
+          child: TextFormField(
             obscureText: true,
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
+            validator: (value)
+            {
+              if(value.isEmpty || value.length <= 5)
+              {
+                return 'invalid Password';
+              }
+              return null;
+            },
+            onSaved: (value)
+            {
+              _authData["password"] = value;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),

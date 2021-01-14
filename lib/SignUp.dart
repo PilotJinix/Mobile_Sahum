@@ -173,7 +173,7 @@ class _SignUpState extends State<SignUp> {
             ),
             validator: (value)
             {
-              if (value.isEmpty || value != _passwordController ){
+              if (value.isEmpty || value != _passwordController.text ){
                 return 'Invalid Password';
               }
               return null;
