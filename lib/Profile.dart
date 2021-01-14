@@ -72,7 +72,7 @@ class _ProfileState extends State<Profile> {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage("assets/me.jpg")
+                          image: imgcamera == null ? AssetImage("assets/me.jpg") : FileImage(File(imgcamera.path))
                         )
                       ),
                     ),
