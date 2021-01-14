@@ -1,6 +1,9 @@
 # This is a generated file; do not edit or check into version control.
 flutter_plugin_android_lifecycle=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.11\\
+geolocator=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\geolocator-6.1.13\\
 image_picker=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker-0.6.7+21\\
+mapbox_gl=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\mapbox_gl-0.9.0\\
+mapbox_gl_web=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\mapbox_gl_web-0.9.0\\
 path_provider=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.27\\
 path_provider_linux=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+2\\
 path_provider_macos=D:\\Programs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+8\\

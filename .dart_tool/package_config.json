@@ -152,6 +152,24 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///D:/Programs/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "geolocator",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.1.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "geolocator_platform_interface",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-1.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "http",
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2",
       "packageUri": "lib/",
@@ -186,6 +204,36 @@
       "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1",
       "packageUri": "lib/",
       "languageVersion": "2.5"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "mapbox_gl",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/mapbox_gl-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "mapbox_gl_dart",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/mapbox_gl_dart-0.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "mapbox_gl_platform_interface",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/mapbox_gl_platform_interface-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "mapbox_gl_web",
+      "rootUri": "file:///D:/Programs/flutter/.pub-cache/hosted/pub.dartlang.org/mapbox_gl_web-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
     },
     {
       "name": "matcher",
@@ -404,7 +452,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-13T17:26:03.869170Z",
+  "generated": "2021-01-14T03:15:20.793260Z",
   "generator": "pub",
   "generatorVersion": "2.9.1"
 }
