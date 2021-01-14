@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:suhamv1_app/Home.dart';
 import 'package:suhamv1_app/HomeController.dart';
 import 'package:suhamv1_app/SignUp.dart';
 import 'package:suhamv1_app/Touring.dart';
+import 'package:suhamv1_app/models/authentication.dart';
 
 class Login extends StatefulWidget{
   @override
@@ -11,6 +13,55 @@ class Login extends StatefulWidget{
 
 class _LoginState extends State<Login> {
   bool _rememberMe = false;
+
+  final GlobalKey<FormState> _formKey = GlobalKey();
+  TextEditingController _passwordController = new TextEditingController();
+
+  Map<String, String> _authData = {
+    'email' : '',
+    'password' : ''
+  };
+
+  Future<void> _submit() async
+  {
+    if(!_formKey.currentState.validate())
+    {
+      return;
+    }
+    _formKey.currentState.save();
+
+    try{
+      await Provider.of<Authentication>(context, listen: false).login(
+          _authData['email'],
+          _authData['password']
+      );
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeController()));
+
+    } catch (error)
+    {
+      var errorMessage = 'Authentication Failed. Please try again later.';
+      _showErrorDialog(errorMessage);
+    }
+  }
+
+  void _showErrorDialog(String msg)
+  {
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('An Error Occured'),
+          content: Text(msg),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Okay'),
+              onPressed: (){
+                Navigator.of(ctx).pop();
+              },
+            )
+          ],
+        )
+    );
+  }
 
   Widget _buildEmailTF() {
     return Column(
@@ -89,7 +140,9 @@ class _LoginState extends State<Login> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => Navigator.push(context, MaterialPageRoute( builder: (context) => HomeController())),
+        onPressed: () {
+          _submit();
+        },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
