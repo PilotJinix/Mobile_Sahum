@@ -679,16 +679,17 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text("Beranda"),
+              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Home())),
             ),
             ListTile(
               leading: Builder(
                 builder: (BuildContext){
                   return Icon(
-                      Icons.announcement
+                      Icons.map
                   );
                 },
               ),
-              title: Text("Page Two"),
+              title: Text("Peta Maps"),
               onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
             ),
             ListTile(
@@ -717,7 +718,7 @@ class _HomeState extends State<Home> {
               leading: Builder(
                 builder: (BuildContext){
                   return Icon(
-                      Icons.announcement
+                      Icons.android
                   );
                 },
               ),
@@ -728,7 +729,7 @@ class _HomeState extends State<Home> {
               leading: Builder(
                 builder: (BuildContext){
                   return Icon(
-                      Icons.close
+                      Icons.input
                   );
                 },
               ),
