@@ -38,7 +38,7 @@ class _PagetwoState extends State<Pagetwo> {
 
   Widget buildMap() {
     return Container(
-      height: MediaQuery.of(context).size.height-80,
+      height: MediaQuery.of(context).size.height-81,
       child: mb.MapboxMap(
         accessToken: token,
         styleString: 'mapbox://styles/mapbox/streets-v11',
