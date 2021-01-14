@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:suhamv1_app/login.dart';
+
+import 'models/authentication.dart';
 
 class SignUp extends StatefulWidget{
   @override
@@ -8,6 +11,55 @@ class SignUp extends StatefulWidget{
 
 class _SignUpState extends State<SignUp> {
   bool _rememberMe = false;
+
+  final GlobalKey<FormState> _formKey = GlobalKey();
+  TextEditingController _passwordController = new TextEditingController();
+
+  Map<String, String> _authData = {
+    'email' : '',
+    'password' : ''
+  };
+
+  void _showErrorDialog(String msg)
+  {
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('An Error Occured'),
+          content: Text(msg),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Okay'),
+              onPressed: (){
+                Navigator.of(ctx).pop();
+              },
+            )
+          ],
+        )
+    );
+  }
+
+  Future<void> _submit() async
+  {
+    if(!_formKey.currentState.validate())
+    {
+      return;
+    }
+    _formKey.currentState.save();
+
+    try{
+      await Provider.of<Authentication>(context, listen: false).signUp(
+          _authData['email'],
+          _authData['password']
+      );
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login()));
+
+    } catch(error)
+    {
+      var errorMessage = 'Authentication Failed. Please try again later.';
+      _showErrorDialog(errorMessage);
+    }
+  }
 
   Widget _buildEmailTF() {
     return Column(
@@ -22,12 +74,22 @@ class _SignUpState extends State<SignUp> {
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
-          child: TextField(
+          child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
+            validator: (value)
+            {
+              if (value.isEmpty || !value.contains("@")){
+                return 'Invalid Email';
+              }
+              return null;
+            },
+            onSaved: (value){
+              _authData['email'] = value;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -57,12 +119,23 @@ class _SignUpState extends State<SignUp> {
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
-          child: TextField(
+          child: TextFormField(
             obscureText: true,
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'OpenSans',
             ),
+            controller: _passwordController,
+            validator: (value)
+            {
+              if (value.isEmpty || value.length <= 5 ){
+                return 'Invalid Password';
+              }
+              return null;
+            },
+            onSaved: (value){
+              _authData['password'] = value;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
@@ -92,7 +165,7 @@ class _SignUpState extends State<SignUp> {
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
           height: 60.0,
-          child: TextField(
+          child: TextFormField(
             obscureText: true,
             style: TextStyle(
               color: Colors.white,
@@ -128,32 +201,6 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value;
-                });
-              },
-            ),
-          ),
-          Text(
-            'Remember me',
-            style: kLabelStyle,
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _buildLoginBtn() {
     return Container(
@@ -161,14 +208,16 @@ class _SignUpState extends State<SignUp> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          _submit();
+        },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         color: Colors.white,
         child: Text(
-          'LOGIN',
+          'DAFTAR',
           style: TextStyle(
             color: Color(0xFF527DAA),
             letterSpacing: 1.5,
@@ -207,13 +256,13 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-              Container(
-                height: double.infinity,
+              Form(
+                key: _formKey,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 50.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
