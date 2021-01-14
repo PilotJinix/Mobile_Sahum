@@ -282,6 +282,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Form(
+                key: _formKey,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
