@@ -62,8 +62,8 @@
 39        android:debuggable="true"
 40        android:icon="@mipmap/ic_launcher"
 40-->D:\Program Files\Android\suhamv1_app\android\app\src\main\AndroidManifest.xml:11:9-43
-41        android:label="suhamv1_app" >
-41-->D:\Program Files\Android\suhamv1_app\android\app\src\main\AndroidManifest.xml:10:9-36
+41        android:label="SAHUM" >
+41-->D:\Program Files\Android\suhamv1_app\android\app\src\main\AndroidManifest.xml:10:9-30
 42        <activity
 42-->D:\Program Files\Android\suhamv1_app\android\app\src\main\AndroidManifest.xml:12:9-40:20
 43            android:name="com.example.suhamv1_app.MainActivity"
