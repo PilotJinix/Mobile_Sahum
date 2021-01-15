@@ -17,6 +17,65 @@ class _DetailState extends State<Detail> {
   var token = 'pk.eyJ1IjoicGlsb3RqaW5peCIsImEiOiJja2p2c2Q0N24wODFqMndtbHlod2NvNnI0In0.TueBgQ2_KUtH4mnlVH8gyQ';
   mb.MapboxMapController mapController;
 
+  Widget popup(){
+    return Container(
+      height: 100,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: [
+          Text(
+            "Apa Anda Sudah Yakin?",
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(height: 20,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              OutlineButton(
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Detail())),
+                child: Text(
+                  "Cencel",
+                  style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing: 2.2,
+                      color: Colors.black
+                  ),
+                ),
+              ),
+              RaisedButton(
+                onPressed: () {},
+                color: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                ),
+                child: Text(
+                  "Save",
+                  style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing: 2.2,
+                      color: Colors.white
+                  ),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   Widget buildMap() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 12),
@@ -270,7 +329,10 @@ class _DetailState extends State<Detail> {
             ),
             SizedBox(height: 12),
             GestureDetector(
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+              onTap: ()
+              {
+                showModalBottomSheet(context: context, builder: ((builder) => popup()),);
+              },
               child: Container(
                 margin: EdgeInsets.all(12),
                 child: Center(
