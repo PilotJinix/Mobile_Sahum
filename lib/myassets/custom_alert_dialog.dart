@@ -345,3 +345,243 @@ class SimpleDialogOption extends StatelessWidget {
     );
   }
 }
+
+/// A simple material design dialog.
+///
+/// A simple dialog offers the user a choice between several options. A simple
+/// dialog has an optional title that is displayed above the choices.
+///
+/// Choices are normally represented using [SimpleDialogOption] widgets. If
+/// other widgets are used, see [contentPadding] for notes regarding the
+/// conventions for obtaining the spacing expected by Material Design.
+///
+/// For dialogs that inform the user about a situation, consider using an
+/// [AlertDialog].
+///
+/// Typically passed as the child widget to [showDialog], which displays the
+/// dialog.
+///
+/// ## Sample code
+///
+/// In this example, the user is asked to select between two options. These
+/// options are represented as an enum. The [showDialog] method here returns
+/// a [Future] that completes to a value of that enum. If the user cancels
+/// the dialog (e.g. by hitting the back button on Android, or tapping on the
+/// mask behind the dialog) then the future completes with the null value.
+///
+/// The return value in this example is used as the index for a switch statement.
+/// One advantage of using an enum as the return value and then using that to
+/// drive a switch statement is that the analyzer will flag any switch statement
+/// that doesn't mention every value in the enum.
+///
+/// ```dart
+/// Future<Null> _askedToLead() async {
+///   switch (await showDialog<Department>(
+///     context: context,
+///     builder: (BuildContext context) {
+///       return new SimpleDialog(
+///         title: const Text('Select assignment'),
+///         children: <Widget>[
+///           new SimpleDialogOption(
+///             onPressed: () { Navigator.pop(context, Department.treasury); },
+///             child: const Text('Treasury department'),
+///           ),
+///           new SimpleDialogOption(
+///             onPressed: () { Navigator.pop(context, Department.state); },
+///             child: const Text('State department'),
+///           ),
+///         ],
+///       );
+///     }
+///   )) {
+///     case Department.treasury:
+///       // Let's go.
+///       // ...
+///     break;
+///     case Department.state:
+///       // ...
+///     break;
+///   }
+/// }
+/// ```
+///
+/// See also:
+///
+///  * [SimpleDialogOption], which are options used in this type of dialog.
+///  * [AlertDialog], for dialogs that have a row of buttons below the body.
+///  * [Dialog], on which [SimpleDialog] and [AlertDialog] are based.
+///  * [showDialog], which actually displays the dialog and returns its result.
+///  * <https://material.google.com/components/dialogs.html#dialogs-simple-dialogs>
+class SimpleDialog extends StatelessWidget {
+  /// Creates a simple dialog.
+  ///
+  /// Typically used in conjunction with [showDialog].
+  ///
+  /// The [titlePadding] and [contentPadding] arguments must not be null.
+  const SimpleDialog({
+    Key key,
+    this.title,
+    this.titlePadding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+    this.children,
+    this.contentPadding: const EdgeInsets.fromLTRB(0.0, 12.0, 0.0, 16.0),
+    this.semanticLabel,
+  })  : assert(titlePadding != null),
+        assert(contentPadding != null),
+        super(key: key);
+
+  /// The (optional) title of the dialog is displayed in a large font at the top
+  /// of the dialog.
+  ///
+  /// Typically a [Text] widget.
+  final Widget title;
+
+  /// Padding around the title.
+  ///
+  /// If there is no title, no padding will be provided.
+  ///
+  /// By default, this provides the recommend Material Design padding of 24
+  /// pixels around the left, top, and right edges of the title.
+  ///
+  /// See [contentPadding] for the conventions regarding padding between the
+  /// [title] and the [children].
+  final EdgeInsetsGeometry titlePadding;
+
+  /// The (optional) content of the dialog is displayed in a
+  /// [SingleChildScrollView] underneath the title.
+  ///
+  /// Typically a list of [SimpleDialogOption]s.
+  final List<Widget> children;
+
+  /// Padding around the content.
+  ///
+  /// By default, this is 12 pixels on the top and 16 pixels on the bottom. This
+  /// is intended to be combined with children that have 24 pixels of padding on
+  /// the left and right, and 8 pixels of padding on the top and bottom, so that
+  /// the content ends up being indented 20 pixels from the title, 24 pixels
+  /// from the bottom, and 24 pixels from the sides.
+  ///
+  /// The [SimpleDialogOption] widget uses such padding.
+  ///
+  /// If there is no [title], the [contentPadding] should be adjusted so that
+  /// the top padding ends up being 24 pixels.
+  final EdgeInsetsGeometry contentPadding;
+
+  /// The semantic label of the dialog used by accessibility frameworks to
+  /// announce screen transitions when the dialog is opened and closed.
+  ///
+  /// If this label is not provided, a semantic label will be infered from the
+  /// [title] if it is not null.  If there is no title, the label will be taken
+  /// from [MaterialLocalizations.dialogLabel].
+  ///
+  /// See also:
+  ///
+  ///  * [SemanticsConfiguration.isRouteName], for a description of how this
+  ///    value is used.
+  final String semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> body = <Widget>[];
+    String label = semanticLabel;
+
+    if (title != null) {
+      body.add(new Padding(
+          padding: titlePadding,
+          child: new DefaultTextStyle(
+            style: Theme.of(context).textTheme.title,
+            child: new Semantics(namesRoute: true, child: title),
+          )));
+    } else {
+      switch (defaultTargetPlatform) {
+        case TargetPlatform.iOS:
+          label = semanticLabel;
+          break;
+        case TargetPlatform.android:
+        case TargetPlatform.fuchsia:
+          label =
+              semanticLabel ?? MaterialLocalizations.of(context)?.dialogLabel;
+      }
+    }
+
+    if (children != null) {
+      body.add(new Flexible(
+          child: new SingleChildScrollView(
+            padding: contentPadding,
+            child: new ListBody(children: children),
+          )));
+    }
+
+    Widget dialogChild = new IntrinsicWidth(
+      stepWidth: 56.0,
+      child: new ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 280.0),
+        child: new Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: body,
+        ),
+      ),
+    );
+
+    if (label != null)
+      dialogChild = new Semantics(
+        namesRoute: true,
+        label: label,
+        child: dialogChild,
+      );
+    return new Dialog(child: dialogChild);
+  }
+}
+
+class _DialogRoute<T> extends PopupRoute<T> {
+  _DialogRoute({
+    @required this.theme,
+    bool barrierDismissible: true,
+    this.barrierLabel,
+    @required this.child,
+    RouteSettings settings,
+  })  : assert(barrierDismissible != null),
+        _barrierDismissible = barrierDismissible,
+        super(settings: settings);
+
+  final Widget child;
+  final ThemeData theme;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 150);
+
+  @override
+  bool get barrierDismissible => _barrierDismissible;
+  final bool _barrierDismissible;
+
+  @override
+  Color get barrierColor => Colors.black54;
+
+  @override
+  final String barrierLabel;
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return new SafeArea(
+      child: new Builder(builder: (BuildContext context) {
+        final Widget annotatedChild = new Semantics(
+          child: child,
+          scopesRoute: true,
+          explicitChildNodes: true,
+        );
+        return theme != null
+            ? new Theme(data: theme, child: annotatedChild)
+            : annotatedChild;
+      }),
+    );
+  }
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    return new FadeTransition(
+        opacity: new CurvedAnimation(parent: animation, curve: Curves.easeOut),
+        child: child);
+  }
+}
