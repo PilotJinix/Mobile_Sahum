@@ -195,3 +195,153 @@ class CustomAlertDialog extends StatelessWidget {
   /// title, and padding of 24 pixels is provided on the left, right, and bottom
   /// to separate the content from the other edges of the dialog.
   final EdgeInsetsGeometry contentPadding;
+
+  /// The (optional) set of actions that are displayed at the bottom of the
+  /// dialog.
+  ///
+  /// Typically this is a list of [FlatButton] widgets.
+  ///
+  /// These widgets will be wrapped in a [ButtonBar], which introduces 8 pixels
+  /// of padding on each side.
+  ///
+  /// If the [title] is not null but the [content] _is_ null, then an extra 20
+  /// pixels of padding is added above the [ButtonBar] to separate the [title]
+  /// from the [actions].
+  final List<Widget> actions;
+
+  /// The semantic label of the dialog used by accessibility frameworks to
+  /// announce screen transitions when the dialog is opened and closed.
+  ///
+  /// If this label is not provided, a semantic label will be infered from the
+  /// [title] if it is not null.  If there is no title, the label will be taken
+  /// from [MaterialLocalizations.alertDialogLabel].
+  ///
+  /// See also:
+  ///
+  ///  * [SemanticsConfiguration.isRouteName], for a description of how this
+  ///    value is used.
+  final String semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> children = <Widget>[];
+    String label = semanticLabel;
+
+    if (title != null) {
+      children.add(new Padding(
+        padding: titlePadding ??
+            new EdgeInsets.fromLTRB(
+                24.0, 24.0, 24.0, content == null ? 20.0 : 0.0),
+        child: new DefaultTextStyle(
+          style: Theme.of(context).textTheme.title,
+          child: new Semantics(child: title, namesRoute: true),
+        ),
+      ));
+    } else {
+      switch (defaultTargetPlatform) {
+        case TargetPlatform.iOS:
+          label = semanticLabel;
+          break;
+        case TargetPlatform.android:
+        case TargetPlatform.fuchsia:
+          label = semanticLabel ??
+              MaterialLocalizations.of(context)?.alertDialogLabel;
+      }
+    }
+
+    if (content != null) {
+      children.add(new Flexible(
+        child: new Padding(
+          padding: contentPadding,
+          child: new DefaultTextStyle(
+            style: Theme.of(context).textTheme.subhead,
+            child: content,
+          ),
+        ),
+      ));
+    }
+
+    if (actions != null) {
+      children.add(new ButtonTheme.bar(
+        child: new ButtonBar(
+          children: actions,
+        ),
+      ));
+    }
+
+    Widget dialogChild = new IntrinsicWidth(
+      child: new Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      ),
+    );
+
+    if (label != null)
+      dialogChild =
+      new Semantics(namesRoute: true, label: label, child: dialogChild);
+
+    return new Dialog(child: dialogChild);
+  }
+}
+
+/// An option used in a [SimpleDialog].
+///
+/// A simple dialog offers the user a choice between several options. This
+/// widget is commonly used to represent each of the options. If the user
+/// selects this option, the widget will call the [onPressed] callback, which
+/// typically uses [Navigator.pop] to close the dialog.
+///
+/// The padding on a [SimpleDialogOption] is configured to combine with the
+/// default [SimpleDialog.contentPadding] so that each option ends up 8 pixels
+/// from the other vertically, with 20 pixels of spacing between the dialog's
+/// title and the first option, and 24 pixels of spacing between the last option
+/// and the bottom of the dialog.
+///
+/// ## Sample code
+///
+/// ```dart
+/// new SimpleDialogOption(
+///   onPressed: () { Navigator.pop(context, Department.treasury); },
+///   child: const Text('Treasury department'),
+/// )
+/// ```
+///
+/// See also:
+///
+///  * [SimpleDialog], for a dialog in which to use this widget.
+///  * [showDialog], which actually displays the dialog and returns its result.
+///  * [FlatButton], which are commonly used as actions in other kinds of
+///    dialogs, such as [AlertDialog]s.
+///  * <https://material.google.com/components/dialogs.html#dialogs-simple-dialogs>
+class SimpleDialogOption extends StatelessWidget {
+  /// Creates an option for a [SimpleDialog].
+  const SimpleDialogOption({
+    Key key,
+    this.onPressed,
+    this.child,
+  }) : super(key: key);
+
+  /// The callback that is called when this option is selected.
+  ///
+  /// If this is set to null, the option cannot be selected.
+  ///
+  /// When used in a [SimpleDialog], this will typically call [Navigator.pop]
+  /// with a value for [showDialog] to complete its future with.
+  final VoidCallback onPressed;
+
+  /// The widget below this widget in the tree.
+  ///
+  /// Typically a [Text] widget.
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return new InkWell(
+      onTap: onPressed,
+      child: new Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+          child: child),
+    );
+  }
+}
