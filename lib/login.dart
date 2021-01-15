@@ -43,27 +43,6 @@ class _LoginState extends State<Login> {
       var errorMessage = 'Authentication Failed. Please try again later.';
       // _showErrorDialog(errorMessage);
     }
-
-
-  }
-
-  void _showErrorDialog(String msg)
-  {
-    showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text('An Error Occured'),
-          content: Text(msg),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Okay'),
-              onPressed: (){
-                Navigator.of(ctx).pop();
-              },
-            )
-          ],
-        )
-    );
   }
 
   Widget _buildEmailTF() {

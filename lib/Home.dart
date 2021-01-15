@@ -695,17 +695,17 @@ class _HomeState extends State<Home> {
               title: Text("Peta Maps"),
               onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
             ),
-            ListTile(
-              leading: Builder(
-                builder: (BuildContext){
-                  return Icon(
-                      Icons.announcement
-                  );
-                },
-              ),
-              title: Text("Touring"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Touring())),
-            ),
+            // ListTile(
+            //   leading: Builder(
+            //     builder: (BuildContext){
+            //       return Icon(
+            //           Icons.announcement
+            //       );
+            //     },
+            //   ),
+            //   title: Text("Touring"),
+            //   onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Touring())),
+            // ),
             // ListTile(
             //   leading: Builder(
             //     builder: (BuildContext){
