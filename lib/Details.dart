@@ -33,23 +33,11 @@ class _DetailState extends State<Detail> {
               color: Colors.white,
               child: Column(
                 children: <Widget>[
-                  Text("Insert Reset Email:"),
-                  TextField(
-                    controller: _emailControllerField,
-                    decoration: InputDecoration(
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                        ),
-                      ),
-                      hintText: "something@example.com",
-                      labelText: "Email",
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                      ),
-                      hintStyle: TextStyle(
-                        color: Colors.black,
-                      ),
+                  Text(
+                      "SELAMAT",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   Padding(
