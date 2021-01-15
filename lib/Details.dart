@@ -54,25 +54,25 @@ class _DetailState extends State<Detail> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(15),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(25.0),
-                      color: Color(0xff8c52ff),
-                      child: MaterialButton(
-                        minWidth: MediaQuery.of(context).size.width / 2,
-                        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-                        child: Text(
-                          "Send Reset Email",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onPressed: () async {},
+                    child: RaisedButton(
+                      onPressed: () {
+                        showAlertDialog(context);
+                      },
+                      color: Colors.blue,
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)
                       ),
-                    ),
+                      child: Text(
+                        "Save",
+                        style: TextStyle(
+                            fontSize: 14,
+                            letterSpacing: 2.2,
+                            color: Colors.white
+                        ),
+                      ),
+                    )
                   )
                 ],
               ),
