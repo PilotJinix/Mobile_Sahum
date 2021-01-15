@@ -585,3 +585,52 @@ class _DialogRoute<T> extends PopupRoute<T> {
         child: child);
   }
 }
+
+/// Displays a dialog above the current contents of the app.
+///
+/// This function takes a `builder` which typically builds a [Dialog] widget.
+/// Content below the dialog is dimmed with a [ModalBarrier]. This widget does
+/// not share a context with the location that `showDialog` is originally
+/// called from. Use a [StatefulBuilder] or a custom [StatefulWidget] if the
+/// dialog needs to update dynamically.
+///
+/// The `context` argument is used to look up the [Navigator] and [Theme] for
+/// the dialog. It is only used when the method is called. Its corresponding
+/// widget can be safely removed from the tree before the dialog is closed.
+///
+/// The `child` argument is deprecated, and should be replaced with `builder`.
+///
+/// Returns a [Future] that resolves to the value (if any) that was passed to
+/// [Navigator.pop] when the dialog was closed.
+///
+/// The dialog route created by this method is pushed to the root navigator.
+/// If the application has multiple [Navigator] objects, it may be necessary to
+/// call `Navigator.of(context, rootNavigator: true).pop(result)` to close the
+/// dialog rather just 'Navigator.pop(context, result)`.
+///
+/// See also:
+///  * [AlertDialog], for dialogs that have a row of buttons below a body.
+///  * [SimpleDialog], which handles the scrolling of the contents and does
+///    not show buttons below its body.
+///  * [Dialog], on which [SimpleDialog] and [AlertDialog] are based.
+///  * <https://material.google.com/components/dialogs.html>
+Future<T> customShowDialog<T>({
+  @required
+  BuildContext context,
+  bool barrierDismissible: true,
+  @Deprecated(
+      'Instead of using the "child" argument, return the child from a closure '
+          'provided to the "builder" argument. This will ensure that the BuildContext '
+          'is appropriate for widgets built in the dialog.')
+  Widget child,
+  WidgetBuilder builder,
+}) {
+  assert(child == null || builder == null);
+  return Navigator.of(context, rootNavigator: true).push(new _DialogRoute<T>(
+    child: child ?? new Builder(builder: builder),
+    theme: Theme.of(context, shadowThemeOnly: true),
+    barrierDismissible: barrierDismissible,
+    barrierLabel:
+    MaterialLocalizations.of(context).modalBarrierDismissLabel,
+  ));
+}
