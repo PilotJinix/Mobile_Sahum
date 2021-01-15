@@ -29,7 +29,7 @@ class _DetailState extends State<Detail> {
           return CustomAlertDialog(
             content: Container(
               width: MediaQuery.of(context).size.width / 1.2,
-              height: MediaQuery.of(context).size.height / 4.5,
+              height: MediaQuery.of(context).size.height /2,
               color: Colors.white,
               child: Column(
                 children: <Widget>[
