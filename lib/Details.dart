@@ -8,6 +8,8 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:mapbox_gl/mapbox_gl.dart' as mb;
 import 'dart:math' as mathdart;
 
+import 'package:suhamv1_app/myassets/custom_alert_dialog.dart';
+
 
 class Detail extends StatefulWidget{
   @override
@@ -16,6 +18,68 @@ class Detail extends StatefulWidget{
 class _DetailState extends State<Detail> {
   var token = 'pk.eyJ1IjoicGlsb3RqaW5peCIsImEiOiJja2p2c2Q0N24wODFqMndtbHlod2NvNnI0In0.TueBgQ2_KUtH4mnlVH8gyQ';
   mb.MapboxMapController mapController;
+  
+
+  void showAlertDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          TextEditingController _emailControllerField =
+          TextEditingController();
+          return CustomAlertDialog(
+            content: Container(
+              width: MediaQuery.of(context).size.width / 1.2,
+              height: MediaQuery.of(context).size.height / 4.5,
+              color: Colors.white,
+              child: Column(
+                children: <Widget>[
+                  Text("Insert Reset Email:"),
+                  TextField(
+                    controller: _emailControllerField,
+                    decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                      hintText: "something@example.com",
+                      labelText: "Email",
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                      ),
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Material(
+                      elevation: 5.0,
+                      borderRadius: BorderRadius.circular(25.0),
+                      color: Color(0xff8c52ff),
+                      child: MaterialButton(
+                        minWidth: MediaQuery.of(context).size.width / 2,
+                        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+                        child: Text(
+                          "Send Reset Email",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onPressed: () async {},
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
 
   Widget popup(){
     return Container(
@@ -53,7 +117,9 @@ class _DetailState extends State<Detail> {
                 ),
               ),
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showAlertDialog(context);
+                },
                 color: Colors.blue,
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 elevation: 2,
