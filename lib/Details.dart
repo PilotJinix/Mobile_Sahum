@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:suhamv1_app/Home.dart';
 import 'package:suhamv1_app/PageTwo.dart';
@@ -39,6 +40,10 @@ class _DetailState extends State<Detail> {
                       fontSize: 15,
                       fontWeight: FontWeight.bold
                     ),
+                  ),
+                  SvgPicture.asset(
+                      'assets/nego.svg',
+                    width: MediaQuery.of(context).size.width/1.4,
                   ),
                   Padding(
                     padding: EdgeInsets.all(15),
