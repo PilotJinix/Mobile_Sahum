@@ -30,7 +30,7 @@ class _DetailState extends State<Detail> {
           return CustomAlertDialog(
             content: Container(
               width: MediaQuery.of(context).size.width / 1.2,
-              height: MediaQuery.of(context).size.height /2,
+              height: MediaQuery.of(context).size.height /2.1,
               color: Colors.white,
               child: Column(
                 children: <Widget>[
@@ -45,12 +45,17 @@ class _DetailState extends State<Detail> {
                       'assets/nego.svg',
                     width: MediaQuery.of(context).size.width/1.4,
                   ),
+                  SizedBox(height: 25,),
+                  Text(
+                    "Anda sekarang adalah seorang Investor",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w200
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.all(15),
                     child: RaisedButton(
-                      onPressed: () {
-                        showAlertDialog(context);
-                      },
+                      onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
                       color: Colors.blue,
                       padding: EdgeInsets.symmetric(horizontal: 50),
                       elevation: 2,
@@ -58,7 +63,7 @@ class _DetailState extends State<Detail> {
                           borderRadius: BorderRadius.circular(12)
                       ),
                       child: Text(
-                        "Save",
+                        "BERANDA",
                         style: TextStyle(
                             fontSize: 14,
                             letterSpacing: 2.2,
