@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +90,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+                    onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Home())),
                     child: Container(
                       margin: EdgeInsets.only(top: 50),
                       child: Text(
@@ -395,7 +397,7 @@ class _HomeState extends State<Home> {
                         ),
                         SizedBox(width: 10,),
                         GestureDetector(
-                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Detail())),
                           child: Container(
                             height: 330,
                             width: 250,
@@ -520,7 +522,7 @@ class _HomeState extends State<Home> {
                         ),
                         SizedBox(width: 10,),
                         GestureDetector(
-                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
+                          onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Detail())),
                           child: Container(
                             height: 330,
                             width: 250,
@@ -693,28 +695,28 @@ class _HomeState extends State<Home> {
               title: Text("Peta Maps"),
               onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Pagetwo())),
             ),
-            ListTile(
-              leading: Builder(
-                builder: (BuildContext){
-                  return Icon(
-                      Icons.announcement
-                  );
-                },
-              ),
-              title: Text("Touring"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Touring())),
-            ),
-            ListTile(
-              leading: Builder(
-                builder: (BuildContext){
-                  return Icon(
-                      Icons.announcement
-                  );
-                },
-              ),
-              title: Text("Login"),
-              onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Login())),
-            ),
+            // ListTile(
+            //   leading: Builder(
+            //     builder: (BuildContext){
+            //       return Icon(
+            //           Icons.announcement
+            //       );
+            //     },
+            //   ),
+            //   title: Text("Touring"),
+            //   onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Touring())),
+            // ),
+            // ListTile(
+            //   leading: Builder(
+            //     builder: (BuildContext){
+            //       return Icon(
+            //           Icons.announcement
+            //       );
+            //     },
+            //   ),
+            //   title: Text("Login"),
+            //   onTap: ()=> Navigator.push(context , MaterialPageRoute(builder: (context) => Login())),
+            // ),
             ListTile(
               leading: Builder(
                 builder: (BuildContext){
@@ -735,6 +737,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text("Leave App"),
+              onTap: () =>exit(0),
             )
           ],
         ),
