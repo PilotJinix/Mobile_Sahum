@@ -37,11 +37,13 @@ class _LoginState extends State<Login> {
       );
       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeController()));
 
-    } catch (error)
+    } catch(e)
     {
+      print("Bawah");
       var errorMessage = 'Authentication Failed. Please try again later.';
-      _showErrorDialog(errorMessage);
+      // _showErrorDialog(errorMessage);
     }
+
 
   }
 
@@ -226,29 +228,6 @@ class _LoginState extends State<Login> {
             image: logo,
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildSocialBtnRow() {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          _buildSocialBtn(
-                () => print('Login with Facebook'),
-            AssetImage(
-              'assets/facebook.jpg',
-            ),
-          ),
-          _buildSocialBtn(
-                () => print('Login with Google'),
-            AssetImage(
-              'assets/google.jpg',
-            ),
-          ),
-        ],
       ),
     );
   }

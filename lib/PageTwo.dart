@@ -29,7 +29,6 @@ class _PagetwoState extends State<Pagetwo> {
         child: Column(
           children: [
             buildMap(),
-            // buildBtnBottomRow(),
           ],
         ),
       ),
@@ -46,7 +45,6 @@ class _PagetwoState extends State<Pagetwo> {
           target: mb.LatLng(-7.798804, 110.327649),
           zoom: 15,
         ),
-
         onMapCreated: mapCreated,
         onMapClick: mapClicked,
       ),
@@ -73,7 +71,6 @@ class _PagetwoState extends State<Pagetwo> {
     print("Ini controller ${mb.MapboxMapController}");
     mapController = controller;
     print('map created');
-
     var lokasi = mb.LatLng(-7.798804, 110.327649);
     print('lat lng clicked: ${lokasi.latitude}, ${lokasi.longitude}');
     mapController.addCircle(new mb.CircleOptions(
@@ -85,25 +82,6 @@ class _PagetwoState extends State<Pagetwo> {
     ));
   }
 
-  Widget buildBtnBottomRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        RaisedButton(
-          child: Text('Re-center'),
-          onPressed: () {
-            var center = new mb.LatLng(-8.1766639, 113.6916075);
-            var updatedLoc = mb.CameraUpdate.newLatLng(center);
-            if (mapController != null) {
-              mapController.animateCamera(updatedLoc);
-            } else {
-              print('map controller is null');
-            }
-          },
-        ),
-        RaisedButton(onPressed: () {}, child: Text('Btn2')),
-      ],
-    );
-  }
+
 
 }
