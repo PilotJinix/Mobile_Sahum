@@ -56,9 +56,9 @@ class _PagetwoState extends State<Pagetwo> {
     if (mapController != null) {
       mapController.addCircle(
         new mb.CircleOptions(
-          circleRadius: 8,
+          circleRadius: 30,
           circleColor: 'red',
-          circleOpacity: 1,
+          circleOpacity: 0.2,
           geometry: latlng,
           draggable: false,
         ),
@@ -74,9 +74,9 @@ class _PagetwoState extends State<Pagetwo> {
     var lokasi = mb.LatLng(-7.798804, 110.327649);
     print('lat lng clicked: ${lokasi.latitude}, ${lokasi.longitude}');
     mapController.addCircle(new mb.CircleOptions(
-      circleRadius: 8,
-      circleColor: 'blue',
-      circleOpacity: 1,
+      circleRadius: 1000,
+      circleColor: 'red',
+      circleOpacity: 0.2,
       geometry: lokasi,
       draggable: false,
     ));
